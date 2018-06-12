@@ -1,4 +1,4 @@
-# generator-spsspfx - Sample to demonstrate how to generate a starter template extending spfx
+# generator-spsmadrid - Sample to demonstrate how to generate a starter template extending spfx
 
 This sample generator performs the following actions:
 * Apply custom config (replaces gulp file)
