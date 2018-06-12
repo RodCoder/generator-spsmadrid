@@ -10,10 +10,10 @@ This sample generator performs the following actions:
 
 ```sh
 # Clone repository
-git clone https://github.com/RodCoder/SPS-Generator.git
+git clone https://github.com/RodCoder/Generator-spsmadrid.git
 
 # Switch to the repositories directory
-cd generatore-spsspfx
+cd generator-spsmadrid
 
 # Create a global symlink to appear as a global npm package
 npm link
@@ -32,7 +32,7 @@ This generator is 100% based on @microsoft/generator-sharepoint and supports two
 The basic usage is to start a new project through:
 
 ```sh
-yo spsspfx
+yo spsmadrid
 ```
 
 ![https://github.com/RodCoder/Generator-spsmadrid/blob/master/assets/init-generator.png](https://github.com/RodCoder/Generator-spsmadrid/blob/master/assets/init-generator.png)
