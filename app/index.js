@@ -1,10 +1,11 @@
 'use strict';
-// base generator scaffolding
+
 const Generator = require('yeoman-generator');
-// import command-exists to check if yarn is installed
-const commandExists = require('command-exists').sync;
-// Avoid conflict message
+const chalk = require('chalk');
+const yosay = require('yosay');
+const path = require("path");
 const fs = require('fs');
+const commandExists = require('command-exists').sync;
 
 module.exports = class extends Generator {
 
@@ -14,12 +15,11 @@ module.exports = class extends Generator {
 
     // Initialisation Generator + SPFx generator
     initializing() {
-        this.composeWith(
-            require.resolve(`@microsoft/generator-sharepoint/lib/generators/app`), {
-                'skip-install': true,
-                'framework': 'react'
-            }
-        );
+        this.log(yosay(
+            chalk.white('Welcome to SPS Madrid Custom Generator\n') +
+            chalk.blue('based on\n') +
+            chalk.blue.bold('SharePoint Client-side Solution Generator')
+        ));
     }
 
     // Prompt for user input for Custom Generator
@@ -31,7 +31,14 @@ module.exports = class extends Generator {
         }];
 
         return this.prompt(prompts).then(answers => {
-            this.webparts = answers.webparts
+            this.webparts = answers.webparts;
+
+            this.composeWith(
+                require.resolve(`@microsoft/generator-sharepoint/lib/generators/app`), {
+                    'skip-install': true,
+                    'framework': 'react'
+                }
+            );
         });
     }
 
@@ -208,11 +215,9 @@ module.exports = class extends Generator {
             ]);
 
         done();
-
     }
 
     _processInstall() {
-
         console.log('Process Install');
 
         const hasYarn = commandExists('yarn');
@@ -224,6 +229,5 @@ module.exports = class extends Generator {
             skipMessage: this.options['skip-install-message'],
             skipInstall: this.options['skip-install']
         });
-
     }
 }
